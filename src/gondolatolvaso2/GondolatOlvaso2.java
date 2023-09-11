@@ -1,8 +1,8 @@
-package gondolatolvaso;
+package gondolatolvaso2;
 
 import java.util.Scanner;
 
-public class GondolatOlvaso {
+public class GondolatOlvaso2 {
     private static String[] pakli = new String[21];
 
     public static void main(String[] args) {
