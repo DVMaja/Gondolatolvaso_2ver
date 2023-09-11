@@ -9,7 +9,7 @@ public class GondolatOlvaso2 {
     public static void main(String[] args) {
         Kirak();
         Megjelenit();
-        Melyik();
+        //Melyik();
         Kever();
         EzVolt();
     }
@@ -17,7 +17,7 @@ public class GondolatOlvaso2 {
     private static String[] Kirak() {
         String[] szinek = {"P", "T", "Z", "M"};
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
-
+        
         int index = 0;
         for (int szin = 0; szin < szinek.length; szin++) {
             for (int ertek = 0; ertek < ertekek.length - 1; ertek++) {
@@ -25,12 +25,10 @@ public class GondolatOlvaso2 {
                 index++;
             }
         }
-
         return pakli;
     }
 
     private static String[] Megjelenit() {
-
         for (int szamlalo = 0; szamlalo < pakli.length; szamlalo++) {
             if (szamlalo % 3 == 0) {
                 System.out.println(" ");
@@ -39,7 +37,6 @@ public class GondolatOlvaso2 {
                 System.out.printf("%-8s", pakli[szamlalo]);
             }
         }
-
         return pakli;
 
     }
@@ -57,19 +54,20 @@ public class GondolatOlvaso2 {
     }
 
     private static void Kever() {
-
-        int cserelendo = 3;
-
         int oszlop = 1;
         String csereHely = "";
+        int helytarto = 0;
 
         switch (oszlop) {
             case 1:
                 for (int i = 1; i <= 7; i++) {
+
                     pakli[i] = pakli[20 - (i - 1) * 3];
                     pakli[i + 7] = pakli[19 - (i - 1) * 3];
                     pakli[i + 14] = pakli[21 - (i - 1) * 3];
                 }
+                break;
+                
             case 2:
                 for (int i = 1; i <= 7; i++) {
                     //keplet (pakli.length-1)-(i-1)*3
@@ -85,7 +83,7 @@ public class GondolatOlvaso2 {
                 break;
 //            case 3:
 //                for (int i = 1; i <= 7; i++) {
-//                    pakli[i] = pakli[20 - (i - 1) * 3];
+//                     pakli[i] = pakli[20 - (i - 1) * 3];
 //                    pakli[i + 7] = pakli[21 - (i - 1) * 3];
 //                    pakli[i + 14] = pakli[19 - (i - 1) * 3];
 //                }
