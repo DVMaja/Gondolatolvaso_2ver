@@ -8,6 +8,7 @@ public class GondolatOlvaso2 {
 
     public static void main(String[] args) {
         Kirak();
+        Megjelenit();
         Melyik();
         Kever();
         EzVolt();
@@ -25,6 +26,11 @@ public class GondolatOlvaso2 {
             }
         }
 
+        return pakli;
+    }
+
+    private static String[] Megjelenit() {
+
         for (int szamlalo = 0; szamlalo < pakli.length; szamlalo++) {
             if (szamlalo % 3 == 0) {
                 System.out.println(" ");
@@ -33,7 +39,9 @@ public class GondolatOlvaso2 {
                 System.out.printf("%-8s", pakli[szamlalo]);
             }
         }
+
         return pakli;
+
     }
 
     private static void Melyik() {
@@ -42,33 +50,54 @@ public class GondolatOlvaso2 {
         Scanner sc = new Scanner(System.in);
         boolean jo;
 
+        /*
+>>>>>>> 856aef49dad29c8e2bed37f61f3fe29579d92f86
         do {
             System.out.println("oszlop(1-3): ");
             int oszlop = sc.nextInt();
             jo = oszlop >= 1 && oszlop <= 3;
         } while (!jo);
-
+<<<<<<< HEAD
+=======
+         */
     }
 
     private static void Kever() {
-        int valasztottOszop = 3;
+
         int cserelendo = 3;
 
-        switch (valasztottOszop) {
+        int oszlop = 1;
+        String csereHely = "";
 
-            case 1:                
+        switch (oszlop) {
+            case 1:
+                for (int i = 1; i <= 7; i++) {
+                    //keplet (pakli.length-1)-(i-1)*3
+                    csereHely = pakli[i];
+                    int pakliIndex = (pakli.length - 1) - (i - 1) * 3;
+                    pakli[i] = pakli[pakliIndex];
+                }
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+        oszlop = 3;
+        switch (oszlop) {
+
+            case 1:
                 for (int i = 1; i <= 7; i++) {
                     cserelendo = 21 - (i - 1) * 3;
                 }
                 break;
 
-            case 1 + 7:                
+            case 1 + 7:
                 for (int i = 1; i <= 7; i++) {
                     cserelendo = 20 - (i - 1) * 3;
                 }
                 break;
 
-            case 1 + 14:                
+            case 1 + 14:
                 for (int i = 1; i <= 7; i++) {
                     cserelendo = 19 - (i - 1) * 3;
                 }
@@ -77,6 +106,8 @@ public class GondolatOlvaso2 {
             default:
                 throw new AssertionError();
         }
+
+        Megjelenit();
 
     }
 
