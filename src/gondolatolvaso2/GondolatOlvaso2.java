@@ -17,7 +17,7 @@ public class GondolatOlvaso2 {
     private static String[] Kirak() {
         String[] szinek = {"P", "T", "Z", "M"};
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
-        
+
         int index = 0;
         for (int szin = 0; szin < szinek.length; szin++) {
             for (int ertek = 0; ertek < ertekek.length - 1; ertek++) {
@@ -54,20 +54,30 @@ public class GondolatOlvaso2 {
     }
 
     private static void Kever() {
+        System.out.println("");
         int oszlop = 1;
         String csereHely = "";
         int helytarto = 0;
 
         switch (oszlop) {
             case 1:
-                for (int i = 1; i <= 7; i++) {
+                for (int i = 1; i < 7; i++) {
 
-                    pakli[i] = pakli[20 - (i - 1) * 3];
-                    pakli[i + 7] = pakli[19 - (i - 1) * 3];
-                    pakli[i + 14] = pakli[21 - (i - 1) * 3];
+                    helytarto = i;
+                    pakli[i] = pakli[19 - (i - 1) * 3];
+                    pakli[19 - (i - 1) * 3] = pakli[helytarto];
+
+                    helytarto = i + 7;
+                    pakli[i + 7] = pakli[18 - (i - 1) * 3];
+                    pakli[18 - (i - 1) * 3] = pakli[helytarto];
+
+                    helytarto = i + 14;
+                    pakli[i + 14] = pakli[20 - (i - 1) * 3];
+                    pakli[20 - (i - 1) * 3] = pakli[helytarto];
+
                 }
                 break;
-                
+
             case 2:
                 for (int i = 1; i <= 7; i++) {
                     //keplet (pakli.length-1)-(i-1)*3
