@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GondolatOlvaso2 {
 
-    private static String[] pakli = new String[21];
+    private static String[] pakli = new String[22];
 
     public static void main(String[] args) {
         Kirak();
@@ -16,8 +16,8 @@ public class GondolatOlvaso2 {
 
     private static String[] Kirak() {
         String[] szinek = {"P", "T", "Z", "M"};
-        String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
-
+        String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "XIII"};
+        
         int index = 0;
         for (int szin = 0; szin < szinek.length; szin++) {
             for (int ertek = 0; ertek < ertekek.length - 1; ertek++) {
@@ -25,6 +25,7 @@ public class GondolatOlvaso2 {
                 index++;
             }
         }
+        
         return pakli;
     }
 
@@ -55,8 +56,7 @@ public class GondolatOlvaso2 {
 
     private static void Kever() {
         System.out.println("");
-        int oszlop = 1;
-        String csereHely = "";
+        int oszlop = 2;
         int helytarto = 0;
 
         switch (oszlop) {
@@ -80,30 +80,28 @@ public class GondolatOlvaso2 {
 
             case 2:
                 for (int i = 1; i <= 7; i++) {
-                    //keplet (pakli.length-1)-(i-1)*3
-                    /*
-                    csereHely = pakli[i];
-                    int pakliIndex = (pakli.length - 1) - (i - 1) * 3;
-                    pakli[i] = pakli[pakliIndex];
-                     */
+                    helytarto = i;
                     pakli[i] = pakli[19 - (i - 1) * 3];
+                    pakli[19 - (i - 1) * 3] = pakli[helytarto];
+                    helytarto = i + 7;
                     pakli[i + 7] = pakli[20 - (i - 1) * 3];
+                    pakli[20 - (i - 1) * 3] = pakli[helytarto];
+                    helytarto = i + 14;
                     pakli[i + 14] = pakli[21 - (i - 1) * 3];
+                    pakli[21 - (i - 1) * 3] = pakli[helytarto];
                 }
                 break;
-//            case 3:
-//                for (int i = 1; i <= 7; i++) {
-//                     pakli[i] = pakli[20 - (i - 1) * 3];
-//                    pakli[i + 7] = pakli[21 - (i - 1) * 3];
-//                    pakli[i + 14] = pakli[19 - (i - 1) * 3];
-//                }
-//                break;
             case 3:
                 for (int i = 1; i <= 7; i++) {
-
+                    helytarto = i;
                     pakli[i] = pakli[21 - (i - 1) * 3];
+                    pakli[21 - (i - 1) * 3] = pakli[helytarto];
+                    helytarto = i + 7;
                     pakli[i + 7] = pakli[20 - (i - 1) * 3];
+                    pakli[20 - (i - 1) * 3] = pakli[helytarto];
+                    helytarto = i + 14;
                     pakli[i + 14] = pakli[19 - (i - 1) * 3];
+                    pakli[19 - (i - 1) * 3] = pakli[helytarto];
                 }
                 break;
             default:
