@@ -25,11 +25,9 @@ public class GondolatOlvaso2 {
                 index++;
             }
         }
-
-        
         return pakli;
     }
-    
+
     private static void Megjelenit() {
         for (int szamlalo = 0; szamlalo < pakli.length; szamlalo++) {
             if (szamlalo % 3 == 0) {
@@ -59,19 +57,36 @@ public class GondolatOlvaso2 {
     private static void Kever() {
         int oszlop = 1;
         String csereHely = "";
-        switch (1) {
+        switch (oszlop) {
             case 1:
                 for (int i = 1; i <= 7; i++) {
+                    pakli[i] = pakli[20 - (i - 1) * 3];
+                    pakli[i + 7] = pakli[19 - (i - 1) * 3];
+                    pakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
+            case 2:
+                for (int i = 1; i <= 7; i++) {
                     //keplet (pakli.length-1)-(i-1)*3
+                    /*
                     csereHely = pakli[i];
                     int pakliIndex = (pakli.length-1)-(i-1)*3;
                     pakli[i] = pakli[pakliIndex];
+                     */
+                    pakli[i] = pakli[19 - (i - 1) * 3];
+                    pakli[i + 7] = pakli[20 - (i - 1) * 3];
+                    pakli[i + 14] = pakli[21 - (i - 1) * 3];
+                }
+                break;
+            case 3:
+                for (int i = 1; i <= 7; i++) {
+                    pakli[i] = pakli[20 - (i - 1) * 3];
+                    pakli[i + 7] = pakli[21 - (i - 1) * 3];
+                    pakli[i + 14] = pakli[19 - (i - 1) * 3];
                 }
                 break;
             default:
                 throw new AssertionError();
         }
-        
         Megjelenit();
     }
 
@@ -79,7 +94,5 @@ public class GondolatOlvaso2 {
         boolean ezVolt = false;
         return ezVolt;
     }
-
-    
 
 }
