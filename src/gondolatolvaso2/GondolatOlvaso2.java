@@ -9,8 +9,8 @@ public class GondolatOlvaso2 {
     public static void main(String[] args) {
         Kirak();
         Megjelenit();
-        //Melyik();
-        Kever();
+        int valasztott_oszlop = Melyik();
+        Kever(valasztott_oszlop);
         EzVolt();
     }
 
@@ -41,25 +41,28 @@ public class GondolatOlvaso2 {
 
     }
 
-    private static void Melyik() {
+    private static int Melyik() {
         Scanner sc = new Scanner(System.in);
         boolean jo;
-
+        int kimeno;
         do {
             System.out.println("\nKérem adja meg melyik oszlopot választja:");
             int oszlop = sc.nextInt();
             jo = oszlop >= 1 && oszlop <= 3;
+            kimeno = oszlop;
         } while (!jo);
+        
+        return kimeno;
+        
 
     }
 
-    private static void Kever() {
+    private static void Kever(int valasztott_oszlop) {
         System.out.println("");
-        int oszlop = 1;
-        String csereHely = "";
+        //int oszlop = 1;        
         int helytarto = 0;
 
-        switch (oszlop) {
+        switch (valasztott_oszlop) {
             case 1:
                 for (int i = 1; i < 7; i++) {
 
