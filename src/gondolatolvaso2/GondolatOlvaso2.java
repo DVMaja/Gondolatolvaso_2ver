@@ -17,7 +17,7 @@ public class GondolatOlvaso2 {
     private static String[] Kirak() {
         String[] szinek = {"P", "T", "Z", "M"};
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "XIII"};
-        
+
         int index = 0;
         for (int szin = 0; szin < szinek.length; szin++) {
             for (int ertek = 0; ertek < ertekek.length - 1; ertek++) {
@@ -25,7 +25,7 @@ public class GondolatOlvaso2 {
                 index++;
             }
         }
-        
+
         return pakli;
     }
 
@@ -52,17 +52,12 @@ public class GondolatOlvaso2 {
             jo = oszlop >= 1 && oszlop <= 3;
             kimeno = oszlop;
         } while (!jo);
-        
-        return kimeno;
-        
 
+        return kimeno;
     }
 
     private static void Kever(int valasztott_oszlop) {
         System.out.println("");
-
-        int oszlop = 2;      
-
         int helytarto = 0;
 
         switch (valasztott_oszlop) {
@@ -86,12 +81,15 @@ public class GondolatOlvaso2 {
 
             case 2:
                 for (int i = 1; i <= 7; i++) {
+
                     helytarto = i;
                     pakli[i] = pakli[19 - (i - 1) * 3];
                     pakli[19 - (i - 1) * 3] = pakli[helytarto];
                     helytarto = i + 7;
+
                     pakli[i + 7] = pakli[20 - (i - 1) * 3];
                     pakli[20 - (i - 1) * 3] = pakli[helytarto];
+
                     helytarto = i + 14;
                     pakli[i + 14] = pakli[21 - (i - 1) * 3];
                     pakli[21 - (i - 1) * 3] = pakli[helytarto];
@@ -99,12 +97,15 @@ public class GondolatOlvaso2 {
                 break;
             case 3:
                 for (int i = 1; i <= 7; i++) {
+                    
                     helytarto = i;
                     pakli[i] = pakli[21 - (i - 1) * 3];
                     pakli[21 - (i - 1) * 3] = pakli[helytarto];
+                    
                     helytarto = i + 7;
                     pakli[i + 7] = pakli[20 - (i - 1) * 3];
                     pakli[20 - (i - 1) * 3] = pakli[helytarto];
+                    
                     helytarto = i + 14;
                     pakli[i + 14] = pakli[19 - (i - 1) * 3];
                     pakli[19 - (i - 1) * 3] = pakli[helytarto];
