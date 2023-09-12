@@ -19,10 +19,9 @@ public class GondolatOlvaso2 {
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "XIII"};
 
         int index = 0;
-        for (int szin = 0; szin < szinek.length; szin++) {
-            for (int ertek = 0; ertek < ertekek.length - 1; ertek++) {
-                pakli[index] = szinek[szin] + "_" + ertekek[ertek];
-                index++;
+        for (String szin : szinek) {
+            for (int ertek = 0; index < 22 && ertek < ertekek.length; ertek++) {
+                pakli[index++] = szin + "_" + ertekek[ertek];
             }
         }
 
@@ -30,12 +29,11 @@ public class GondolatOlvaso2 {
     }
 
     private static String[] Megjelenit() {
-        for (int szamlalo = 0; szamlalo < pakli.length; szamlalo++) {
+        for (int szamlalo = 1; szamlalo < pakli.length; szamlalo++) {
+            String lap = pakli[szamlalo];
+            System.out.printf("%-8s", lap);
             if (szamlalo % 3 == 0) {
-                System.out.println(" ");
-                System.out.printf("%-8s", pakli[szamlalo]);
-            } else {
-                System.out.printf("%-8s", pakli[szamlalo]);
+                System.out.println("");
             }
         }
         return pakli;
@@ -97,15 +95,15 @@ public class GondolatOlvaso2 {
                 break;
             case 3:
                 for (int i = 1; i <= 7; i++) {
-                    
+
                     helytarto = i;
                     pakli[i] = pakli[21 - (i - 1) * 3];
                     pakli[21 - (i - 1) * 3] = pakli[helytarto];
-                    
+
                     helytarto = i + 7;
                     pakli[i + 7] = pakli[20 - (i - 1) * 3];
                     pakli[20 - (i - 1) * 3] = pakli[helytarto];
-                    
+
                     helytarto = i + 14;
                     pakli[i + 14] = pakli[19 - (i - 1) * 3];
                     pakli[19 - (i - 1) * 3] = pakli[helytarto];
