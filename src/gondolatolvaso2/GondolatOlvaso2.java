@@ -56,59 +56,60 @@ public class GondolatOlvaso2 {
 
     private static void Kever(int valasztott_oszlop) {
         System.out.println("");
-        int helytarto = 0;
+        String helytarto;
 
         switch (valasztott_oszlop) {
             case 1:
                 for (int i = 1; i < 7; i++) {
 
-                    helytarto = i;
-                    pakli[i] = pakli[19 - (i - 1) * 3];
-                    pakli[19 - (i - 1) * 3] = pakli[helytarto];
+                    helytarto = pakli[i];
+                    pakli[i] = pakli[20 - (i - 1) * 3];
+                    pakli[20 - (i - 1) * 3] = helytarto;
 
-                    helytarto = i + 7;
-                    pakli[i + 7] = pakli[18 - (i - 1) * 3];
-                    pakli[18 - (i - 1) * 3] = pakli[helytarto];
+                    helytarto = pakli[i + 7];
+                    pakli[i + 7] = pakli[19 - (i - 1) * 3];
+                    pakli[19 - (i - 1) * 3] = helytarto;
 
-                    helytarto = i + 14;
-                    pakli[i + 14] = pakli[20 - (i - 1) * 3];
-                    pakli[20 - (i - 1) * 3] = pakli[helytarto];
-
+                    helytarto = pakli[i + 14];
+                    pakli[i + 14] = pakli[21 - (i - 1) * 3];
+                    pakli[21 - (i - 1) * 3] = helytarto;
                 }
                 break;
 
             case 2:
                 for (int i = 1; i <= 7; i++) {
 
-                    helytarto = i;
+                    helytarto = pakli[i];
                     pakli[i] = pakli[19 - (i - 1) * 3];
-                    pakli[19 - (i - 1) * 3] = pakli[helytarto];
-                    helytarto = i + 7;
+                    pakli[19 - (i - 1) * 3] = helytarto;
 
+                    helytarto = pakli[i + 7];
                     pakli[i + 7] = pakli[20 - (i - 1) * 3];
-                    pakli[20 - (i - 1) * 3] = pakli[helytarto];
+                    pakli[20 - (i - 1) * 3] = helytarto;
 
-                    helytarto = i + 14;
+                    helytarto = pakli[i + 14];
                     pakli[i + 14] = pakli[21 - (i - 1) * 3];
-                    pakli[21 - (i - 1) * 3] = pakli[helytarto];
+                    pakli[21 - (i - 1) * 3] = helytarto;
                 }
                 break;
+
             case 3:
                 for (int i = 1; i <= 7; i++) {
 
-                    helytarto = i;
+                    helytarto = pakli[i];
                     pakli[i] = pakli[21 - (i - 1) * 3];
-                    pakli[21 - (i - 1) * 3] = pakli[helytarto];
+                    pakli[21 - (i - 1) * 3] = helytarto;
 
-                    helytarto = i + 7;
+                    helytarto = pakli[i + 7];
                     pakli[i + 7] = pakli[20 - (i - 1) * 3];
-                    pakli[20 - (i - 1) * 3] = pakli[helytarto];
+                    pakli[20 - (i - 1) * 3] = helytarto;
 
-                    helytarto = i + 14;
+                    helytarto = pakli[i + 14];
                     pakli[i + 14] = pakli[19 - (i - 1) * 3];
-                    pakli[19 - (i - 1) * 3] = pakli[helytarto];
+                    pakli[19 - (i - 1) * 3] = helytarto;
                 }
                 break;
+
             default:
                 throw new AssertionError();
         }
