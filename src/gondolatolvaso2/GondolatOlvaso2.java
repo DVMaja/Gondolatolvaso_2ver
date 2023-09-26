@@ -5,121 +5,86 @@ import java.util.Scanner;
 public class GondolatOlvaso2 {
 
     private static String[] pakli = new String[22];
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Kirak();
-        Megjelenit();
-        int valasztott_oszlop = Melyik();
-        Kever(valasztott_oszlop);
+        feltolt();
+        for (int i = 0; i < 3; i++) {
+            kirak();
+            int valasztottOszlop = Melyik();
+            Kever(valasztottOszlop);
+        }
         EzVolt();
     }
 
-    private static String[] Kirak() {
+    private static void feltolt() {
         String[] szinek = {"P", "T", "Z", "M"};
-        String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "XIII"};
+        String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
 
         int index = 0;
         for (String szin : szinek) {
-            for (int ertek = 0; index < 22 && ertek < ertekek.length; ertek++) {
+            for (int ertek = 0; ertek < ertekek.length && index < pakli.length; ertek++) {
                 pakli[index++] = szin + "_" + ertekek[ertek];
             }
         }
-
-        return pakli;
     }
 
-    private static String[] Megjelenit() {
+    private static void kirak() {
         for (int szamlalo = 1; szamlalo < pakli.length; szamlalo++) {
-            String lap = pakli[szamlalo];
-            System.out.printf("%-8s", lap);
+            //String lap = pakli[szamlalo];
+            System.out.printf("%-8s", pakli[szamlalo]);
             if (szamlalo % 3 == 0) {
                 System.out.println("");
             }
         }
-        return pakli;
-
     }
 
     private static int Melyik() {
-        Scanner sc = new Scanner(System.in);
         boolean jo;
-        int kimeno;
+        int oszlop;
         do {
             System.out.println("\nKérem adja meg melyik oszlopot választja:");
-            int oszlop = sc.nextInt();
+            oszlop = sc.nextInt();
             jo = oszlop >= 1 && oszlop <= 3;
-            kimeno = oszlop;
         } while (!jo);
 
-        return kimeno;
+        return oszlop;
     }
 
-    private static void Kever(int valasztott_oszlop) {
+    private static void Kever(int valasztottOszlop) {
         System.out.println("");
-        String helytarto;
+        //String helytarto;
+        String[] ujPakli = new String[22];
 
-        switch (valasztott_oszlop) {
-            case 1:
-                for (int i = 1; i < 7; i++) {
-
-                    helytarto = pakli[i];
-                    pakli[i] = pakli[20 - (i - 1) * 3];
-                    pakli[20 - (i - 1) * 3] = helytarto;
-
-                    helytarto = pakli[i + 7];
-                    pakli[i + 7] = pakli[19 - (i - 1) * 3];
-                    pakli[19 - (i - 1) * 3] = helytarto;
-
-                    helytarto = pakli[i + 14];
-                    pakli[i + 14] = pakli[21 - (i - 1) * 3];
-                    pakli[21 - (i - 1) * 3] = helytarto;
+        switch (valasztottOszlop) {
+              case 1:
+                for (int i = 1; i <= 7; i++) {
+                    ujPakli[i] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
                 }
                 break;
-
             case 2:
                 for (int i = 1; i <= 7; i++) {
-
-                    helytarto = pakli[i];
-                    pakli[i] = pakli[19 - (i - 1) * 3];
-                    pakli[19 - (i - 1) * 3] = helytarto;
-
-                    helytarto = pakli[i + 7];
-                    pakli[i + 7] = pakli[20 - (i - 1) * 3];
-                    pakli[20 - (i - 1) * 3] = helytarto;
-
-                    helytarto = pakli[i + 14];
-                    pakli[i + 14] = pakli[21 - (i - 1) * 3];
-                    pakli[21 - (i - 1) * 3] = helytarto;
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[20 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3];
                 }
                 break;
-
             case 3:
                 for (int i = 1; i <= 7; i++) {
-
-                    helytarto = pakli[i];
-                    pakli[i] = pakli[21 - (i - 1) * 3];
-                    pakli[21 - (i - 1) * 3] = helytarto;
-
-                    helytarto = pakli[i + 7];
-                    pakli[i + 7] = pakli[20 - (i - 1) * 3];
-                    pakli[20 - (i - 1) * 3] = helytarto;
-
-                    helytarto = pakli[i + 14];
-                    pakli[i + 14] = pakli[19 - (i - 1) * 3];
-                    pakli[19 - (i - 1) * 3] = helytarto;
+                    ujPakli[i] = pakli[19 - (i - 1) * 3];
+                    ujPakli[i + 7] = pakli[21 - (i - 1) * 3];
+                    ujPakli[i + 14] = pakli[20 - (i - 1) * 3];
                 }
                 break;
-
-            default:
-                throw new AssertionError();
         }
-        Megjelenit();
+        pakli = ujPakli;
 
     }
 
-    private static boolean EzVolt() {
-        boolean ezVolt = false;
-        return ezVolt;
+    private static void EzVolt() {
+        System.out.println("Ez volt az Ön kártyája: |" + pakli[11] + "| ?");
     }
 
 }
